@@ -50,7 +50,7 @@ Users DB  Alumni DB  Connection DB  Events DB  messages DB
         |
   +-----+-----+-----+-----+-----+-----+
   |     |     |     |     |     |     |
- Auth  User  Connection  Content  Event  Messaging
+ Auth  User  Connection  Profile  Event  Messaging
 Service Service  Service   Service   Service
   |     |     |     |     |     |
   |     |     |     |     |     |
