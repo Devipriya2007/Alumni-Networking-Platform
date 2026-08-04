@@ -1,0 +1,49 @@
+Table users {
+  id int [pk, increment]
+  username varchar
+  email varchar
+  password varchar
+  first_name varchar
+  last_name varchar
+}
+
+Table alumni_profile {
+  id int [pk, increment]
+  user_id int [ref: - users.id]
+  role varchar
+  graduation_year int
+  department varchar
+  current_company varchar
+  job_title varchar
+  location varchar
+  bio text
+  profile_photo varchar
+  linkedin_url varchar
+}
+
+Table event {
+  id int [pk, increment]
+  title varchar
+  description text
+  date datetime
+  location varchar
+  created_by int [ref: > users.id]
+  created_at datetime
+}
+
+Table job_post {
+  id int [pk, increment]
+  title varchar
+  company varchar
+  description text
+  link varchar
+  posted_by int [ref: > users.id]
+  posted_at datetime
+}
+
+Table event_rsvp {
+  id int [pk, increment]
+  user_id int [ref: > users.id]
+  event_id int [ref: > event.id]
+  rsvp_date datetime
+}
