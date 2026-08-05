@@ -1,0 +1,106 @@
+?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="gKPkkLhi-N8RRDgGqkW3">
+    <mxGraphModel dx="1687" dy="473" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-3" edge="1" parent="1" style="shape=flexArrow;endArrow=none;html=1;rounded=0;startArrow=block;startFill=0;endFill=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="200" as="sourcePoint" />
+            <mxPoint x="400" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-11" edge="1" parent="1" style="shape=flexArrow;endArrow=none;html=1;rounded=0;startArrow=block;startFill=0;endFill=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="399.5" y="400" as="sourcePoint" />
+            <mxPoint x="399.5" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-14" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;startArrow=classic;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="398.4" y="600" as="sourcePoint" />
+            <mxPoint x="398.4" y="512.97" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-16" edge="1" parent="1" source="rDR_pJnkSAmRUbXooq_s-6" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="470" as="sourcePoint" />
+            <mxPoint x="440" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-17" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;" target="rDR_pJnkSAmRUbXooq_s-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="470" as="sourcePoint" />
+            <mxPoint x="440" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-6" parent="1" style="rounded=0;whiteSpace=wrap;fontColor=default;align=center;fontFamily=Verdana;textDirection=ltr;verticalAlign=middle;fontSize=17;fontStyle=1" value="Backend   (Application layer)        &#xa;                Python Flask/Django " vertex="1">
+          <mxGeometry height="110" width="800" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-18" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;startArrow=none;startFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="41" y="558.21" as="sourcePoint" />
+            <mxPoint x="770" y="558.21" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-21" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;fontFamily=Verdana;fontStyle=1" value="Profile" vertex="1">
+          <mxGeometry height="80" width="80" x="180" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-22" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;fontFamily=Verdana;fontStyle=1" value="Jobs" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-23" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;fontFamily=Verdana;fontStyle=1" value="Events" vertex="1">
+          <mxGeometry height="80" width="80" x="542" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-25" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="rDR_pJnkSAmRUbXooq_s-23" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="582" y="560" as="sourcePoint" />
+            <mxPoint x="542" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-31" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="764" y="560" as="sourcePoint" />
+            <mxPoint x="764" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-32" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="40" y="560" as="sourcePoint" />
+            <mxPoint x="40" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-34" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="rDR_pJnkSAmRUbXooq_s-21" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="220" y="560" as="sourcePoint" />
+            <mxPoint x="220" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-35" edge="1" parent="1" style="shape=flexArrow;endArrow=none;html=1;rounded=0;startArrow=block;startFill=0;endFill=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="760" as="sourcePoint" />
+            <mxPoint x="400" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1" value="&#xa;&lt;p class=&quot;selectable-text copyable-text x15bjb6t x1n2onr6&quot;&gt;&lt;span class=&quot;selectable-text copyable-text xkrh14z&quot; style=&quot;white-space: pre-wrap;&quot;&gt;                     MySQL Database                     &lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;selectable-text copyable-text x15bjb6t x1n2onr6&quot;&gt;&lt;span class=&quot;selectable-text copyable-text xkrh14z&quot; style=&quot;white-space: pre-wrap;&quot;&gt; Users    Profiles   Jobs   Events    Messages&lt;/span&gt;&lt;/p&gt;&#xa;&#xa;" vertex="1">
+          <mxGeometry height="110" width="800" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-20" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;fontFamily=Verdana;fontStyle=1" value="Login" vertex="1">
+          <mxGeometry height="80" width="80" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-46" parent="1" style="rounded=0;whiteSpace=wrap;fontSize=15;fontFamily=Verdana;fontStyle=1" value=" Frontend (Web Browser)               &#xa;        HTML | CSS | JavaScript | Bootstrap " vertex="1">
+          <mxGeometry height="100" width="800" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontFamily=Verdana;fontStyle=1;horizontal=1;" value="&#xa;&lt;p class=&quot;selectable-text copyable-text x15bjb6t x1n2onr6&quot;&gt;&lt;span class=&quot;selectable-text copyable-text xkrh14z&quot; style=&quot;white-space: pre-wrap;&quot;&gt;                   Users                          &lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;selectable-text copyable-text x15bjb6t x1n2onr6&quot;&gt;&lt;span class=&quot;selectable-text copyable-text xkrh14z&quot; style=&quot;white-space: pre-wrap;&quot;&gt;  Alumni         Students         Admin &lt;/span&gt;&lt;/p&gt;&#xa;&#xa;" vertex="1">
+          <mxGeometry height="80" width="800" x="-10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rDR_pJnkSAmRUbXooq_s-48" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;fontStyle=1" value="&#xa;&lt;span class=&quot;selectable-text copyable-text xkrh14z&quot; style=&quot;white-space: pre-wrap;&quot;&gt;Chat  &lt;/span&gt;&#xa;&#xa;" vertex="1">
+          <mxGeometry height="80" width="80" x="724" y="600" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
