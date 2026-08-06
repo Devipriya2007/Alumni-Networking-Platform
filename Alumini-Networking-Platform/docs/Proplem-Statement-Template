@@ -1,0 +1,189 @@
+Problem Statement
+
+1. Title
+
+Alumni Networking Platform
+
+2. Domain
+
+Education / Social Networking / Career Development
+
+3. Who is the User? (Roles)
+
+The system has three user roles:
+
+Student – Creates a profile, searches alumni, views posts, and requests mentorship.
+
+Alumni – Creates a professional profile, shares job opportunities, posts updates, and mentors students.
+
+Admin – Manages users, verifies alumni accounts, approves reports, and maintains the platform.
+
+
+
+
+
+4. What Problem Are We Solving?
+
+Many colleges do not have a centralized platform where students and alumni can communicate. Students struggle to find mentors, internships, and career guidance, while alumni find it difficult to stay connected with their college. This project provides a secure platform where students and alumni can build professional connections, share opportunities, and strengthen the college community.
+
+
+
+
+5. Proposed Solution
+
+The Alumni Networking Platform is a web application that enables students and alumni to register, log in, and create professional profiles. Students can search for alumni based on department, batch, or company, while alumni can share job openings, internship opportunities, career advice, and posts. The system also provides messaging, notifications, and an admin dashboard to manage users and content securely.
+
+
+
+
+6. Core Entities (Database Tables)
+
+1. Users
+
+
+2. Student Profiles
+
+
+3. Alumni Profiles
+
+
+4. Posts
+
+
+5. Messages
+
+
+6. Connections
+
+
+7. Job Opportunities
+
+
+8. Notifications
+
+
+9. Admin
+
+
+10. Reports
+
+
+
+(10 tables satisfy the requirement of at least 5 tables.)
+
+
+
+
+7. User Roles & Permissions
+
+Admin
+
+Verify alumni accounts
+
+Manage students and alumni
+
+Delete inappropriate posts
+
+View reports
+
+Manage the system
+
+
+Student
+
+Register and log in
+
+Create profile
+
+Search alumni
+
+Send connection requests
+
+View jobs and internships
+
+Chat with alumni
+
+
+Alumni
+
+Register and log in
+
+Update professional profile
+
+Share jobs and internships
+
+Create posts
+
+Mentor students
+
+Reply to messages
+
+
+
+
+
+8. Success Criteria
+
+The project is successful if users can:
+
+Register and log in securely.
+
+Search alumni using filters.
+
+View alumni profiles.
+
+Send and receive messages.
+
+Share posts and job opportunities.
+
+Connect with alumni.
+
+Receive notifications.
+
+Allow the admin to manage users and reports.
+
+
+
+
+
+9. Out of Scope
+
+The first version will not include:
+
+Video calling
+
+Online payment
+
+AI chatbot
+
+Mobile application
+
+Multi-college support
+
+Live interview scheduling
+
+
+These can be added in future versions.
+
+
+
+
+10. Chosen Track
+
+Python Track
+
+Frontend: HTML, CSS, Bootstrap, JavaScript
+
+Backend: FastAPI (or Django REST Framework)
+
+Database: MySQL
+
+ORM: SQLAlchemy
+
+Authentication: JWT Authentication
+
+API Testing: Thunder Client
+
+Version Control: Git & GitHub
+
+IDE: Visual Studio Code
