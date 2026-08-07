@@ -1,0 +1,63 @@
+# Environment Variables
+
+.env
+.env.*
+!.env.example
+
+
+# Python
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual Environment
+
+venv/
+.venv/
+env/
+
+
+# VS Code
+
+.vscode/
+
+
+# Database
+
+*.db
+*.sqlite3
+
+
+# Logs
+
+*.log
+
+
+# Build Files
+
+build/
+dist/
+
+# React
+
+node_modules/
+
+
+# Uploads
+
+static/uploads/
+
+
+# Operating System Files
+
+.DS_Store
+Thumbs.db
+
+# IDE
+
+.idea/
