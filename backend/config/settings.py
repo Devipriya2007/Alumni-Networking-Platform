@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
 
     "localhost",
 
-    "https://alumni-networking-backend-gmk4.onrender.com/",
+    "alumni-networking-backend-gmk4.onrender.com",
 
 ]
 
