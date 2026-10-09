@@ -3,7 +3,7 @@ import axios from "axios";
 
 const api = axios.create({
 
-    baseURL: "https://alumni-networking-backend-gmk4.onrender.com/api",
+    baseURL: import.meta.env.VITE_API_URL ||  "https://alumni-networking-backend-gmk4.onrender.com/api",
 
 });
 
