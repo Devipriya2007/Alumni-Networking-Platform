@@ -175,15 +175,10 @@ DEFAULT_AUTO_FIELD = (
 
 
 CORS_ALLOWED_ORIGINS = [
-
     "http://localhost:5173",
-
     "http://127.0.0.1:5173",
-
-    "alumni-networking-platform.onrender.com"
-
+    "https://alumni-networking-platform.onrender.com",
 ]
-
 
 REST_FRAMEWORK = {
 
