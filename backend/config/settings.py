@@ -18,10 +18,8 @@ SECRET_KEY = os.getenv(
 )
 
 
-DEBUG = os.getenv(
-    "DEBUG",
-    "True"
-) == "True"
+
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 
 ALLOWED_HOSTS = [
