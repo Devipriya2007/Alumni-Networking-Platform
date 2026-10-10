@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -142,6 +143,39 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class JobApplication(models.Model):
+
+    job = models.ForeignKey(
+        Job,
+        on_delete=models.CASCADE,
+        related_name="applications"
+    )
+
+    student = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name="job_applications"
+    )
+
+    applied_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["job", "student"],
+                name="unique_student_job_application"
+            )
+        ]
+
+    def __str__(self):
+        return (
+            f"{self.student.full_name} - "
+            f"{self.job.title}"
+        )
 
 
 class Mentorship(models.Model):

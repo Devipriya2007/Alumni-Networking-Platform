@@ -1,3 +1,4 @@
+
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
@@ -10,6 +11,8 @@ from .views import (
     MyProfileView,
     AdminDashboardView,
     AdminUsersView,
+    ApplyForJobView,
+    AdminApplicationStatsView,
 )
 
 
@@ -63,5 +66,17 @@ urlpatterns = [
         "admin-users/",
         AdminUsersView.as_view(),
         name="admin-users"
+    ),
+
+    path(
+        "jobs/<int:job_id>/apply/",
+        ApplyForJobView.as_view(),
+        name="apply-for-job"
+    ),
+
+    path(
+        "jobs/application-stats/",
+        AdminApplicationStatsView.as_view(),
+        name="application-stats"
     ),
 ]
