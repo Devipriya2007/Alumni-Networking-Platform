@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://alumni-networking-backend-gmk4.onrender.com/api/",
+    baseURL: "http://127.0.0.1:8000/api/",
 });
 
 api.interceptors.request.use(
