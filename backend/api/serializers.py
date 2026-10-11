@@ -1,3 +1,4 @@
+
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -6,7 +7,8 @@ from .models import (
     Post,
     Job,
     Mentorship,
-    Message
+    Message,
+    Notification
 )
 
 
@@ -22,7 +24,6 @@ class ProfileSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-
         model = Profile
 
         fields = [
@@ -82,7 +83,6 @@ class ProfileSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
-
         model = Post
 
         fields = [
@@ -104,16 +104,13 @@ class PostSerializer(serializers.ModelSerializer):
 class JobSerializer(serializers.ModelSerializer):
 
     class Meta:
-
         model = Job
-
         fields = "__all__"
 
 
 class MentorshipSerializer(serializers.ModelSerializer):
 
     class Meta:
-
         model = Mentorship
 
         fields = "__all__"
@@ -127,11 +124,31 @@ class MentorshipSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
-
         model = Message
 
         fields = "__all__"
 
         read_only_fields = [
+            "created_at",
+        ]
+
+
+class NotificationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Notification
+
+        fields = [
+            "id",
+            "title",
+            "message",
+            "is_read",
+            "created_at",
+        ]
+
+        read_only_fields = [
+            "id",
+            "title",
+            "message",
             "created_at",
         ]

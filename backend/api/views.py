@@ -1,7 +1,7 @@
 
 from django.db.models import Count
 
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, generics, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,7 +12,8 @@ from .models import (
     Job,
     JobApplication,
     Mentorship,
-    Message
+    Message,
+    Notification
 )
 
 from .serializers import (
@@ -20,7 +21,8 @@ from .serializers import (
     PostSerializer,
     JobSerializer,
     MentorshipSerializer,
-    MessageSerializer
+    MessageSerializer,
+    NotificationSerializer
 )
 
 from .services import check_and_convert_student
@@ -164,6 +166,23 @@ class MessageViewSet(viewsets.ModelViewSet):
     serializer_class = MessageSerializer
     permission_classes = [IsAuthenticated]
 
+    def perform_create(self, serializer):
+
+        sender_profile = Profile.objects.get(
+            user=self.request.user
+        )
+
+        message = serializer.save(
+            sender=sender_profile
+        )
+
+        if message.receiver != sender_profile:
+            Notification.objects.create(
+                recipient=message.receiver,
+                title=f"New message from {sender_profile.full_name}",
+                message=message.content[:200]
+            )
+
 
 class MyProfileView(APIView):
 
@@ -303,3 +322,28 @@ class AdminUsersView(APIView):
             })
 
         return Response(users)
+
+
+class NotificationListView(generics.ListAPIView):
+
+    serializer_class = NotificationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+
+        return Notification.objects.filter(
+            recipient__user=self.request.user
+        ).order_by("-created_at")
+
+
+class NotificationMarkReadView(generics.UpdateAPIView):
+
+    serializer_class = NotificationSerializer
+    permission_classes = [IsAuthenticated]
+    http_method_names = ["patch"]
+
+    def get_queryset(self):
+
+        return Notification.objects.filter(
+            recipient__user=self.request.user
+        )

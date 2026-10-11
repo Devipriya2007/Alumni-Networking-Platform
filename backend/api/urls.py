@@ -13,6 +13,8 @@ from .views import (
     AdminUsersView,
     ApplyForJobView,
     AdminApplicationStatsView,
+    NotificationListView,
+    NotificationMarkReadView,
 )
 
 
@@ -78,5 +80,17 @@ urlpatterns = [
         "jobs/application-stats/",
         AdminApplicationStatsView.as_view(),
         name="application-stats"
+    ),
+
+    path(
+        "notifications/",
+        NotificationListView.as_view(),
+        name="notifications"
+    ),
+
+    path(
+        "notifications/<int:pk>/read/",
+        NotificationMarkReadView.as_view(),
+        name="notification-mark-read"
     ),
 ]

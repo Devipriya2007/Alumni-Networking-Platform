@@ -248,3 +248,17 @@ class Message(models.Model):
             f"{self.sender.full_name} → "
             f"{self.receiver.full_name}"
         )
+    
+class Notification(models.Model):
+    recipient = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name="notifications"
+    )
+    title = models.CharField(max_length=200)
+    message = models.TextField()
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

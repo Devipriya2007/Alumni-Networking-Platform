@@ -8,6 +8,7 @@ function Dashboard() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
@@ -57,6 +58,44 @@ function Dashboard() {
     };
   }, [navigate]);
 
+  // Fetch dashboard notifications
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadNotifications = async () => {
+      const token = localStorage.getItem("access_token");
+
+      if (!token) return;
+
+      try {
+        const response = await api.get("notifications/");
+        console.log("Dashboard notifications:", response.data);
+
+        const data = response.data;
+        const items = Array.isArray(data)
+          ? data
+          : Array.isArray(data.results)
+            ? data.results
+            : [];
+
+        if (isMounted) {
+          setNotifications(items);
+        }
+      } catch (error) {
+        console.error(
+          "Dashboard notifications error:",
+          error.response?.data || error.message
+        );
+      }
+    };
+
+    loadNotifications();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
@@ -65,6 +104,10 @@ function Dashboard() {
 
   const isAdmin =
     profile?.role?.toLowerCase() === "admin";
+
+  const unreadCount = notifications.filter(
+    (item) => !item.is_read
+  ).length;
 
   const features = [
     {
@@ -151,6 +194,20 @@ function Dashboard() {
             </button>
           ))}
 
+          {/* Notifications link */}
+          <button
+            className="sidebar-link"
+            onClick={() => navigate("/notifications")}
+          >
+            <span>🔔</span>
+            Notifications
+            {unreadCount > 0 && (
+              <span style={styles.badge}>
+                {unreadCount}
+              </span>
+            )}
+          </button>
+
           {isAdmin && (
             <button
               className="sidebar-link admin-link"
@@ -175,15 +232,32 @@ function Dashboard() {
             <h2>Dashboard</h2>
           </div>
 
-          <div className="topbar-user">
-            <span className="user-avatar">👤</span>
-            <div>
-              <strong>
-                {profile?.full_name || "Welcome"}
-              </strong>
-              <span>
-                {profile?.role || "Member"}
-              </span>
+          <div style={styles.topbarActions}>
+            {/* Notification button */}
+            <button
+              type="button"
+              style={styles.notificationButton}
+              onClick={() => navigate("/notifications")}
+              aria-label={`Notifications, ${unreadCount} unread`}
+            >
+              🔔
+              {unreadCount > 0 && (
+                <span style={styles.notificationBadge}>
+                  {unreadCount}
+                </span>
+              )}
+            </button>
+
+            <div className="topbar-user">
+              <span className="user-avatar">👤</span>
+              <div>
+                <strong>
+                  {profile?.full_name || "Welcome"}
+                </strong>
+                <span>
+                  {profile?.role || "Member"}
+                </span>
+              </div>
             </div>
           </div>
         </header>
@@ -229,6 +303,64 @@ function Dashboard() {
           </div>
 
           <div className="welcome-decoration">✦</div>
+        </section>
+
+        {/* Latest notifications */}
+        <section style={styles.notificationsSection}>
+          <div style={styles.notificationsHeading}>
+            <div>
+              <span style={styles.sectionEyebrow}>
+                YOUR UPDATES
+              </span>
+              <h2 style={styles.notificationsTitle}>
+                Recent Notifications
+              </h2>
+            </div>
+
+            <button
+              type="button"
+              style={styles.viewAllButton}
+              onClick={() => navigate("/notifications")}
+            >
+              View all →
+            </button>
+          </div>
+
+          {notifications.length === 0 ? (
+            <p style={styles.noNotifications}>
+              No notifications yet.
+            </p>
+          ) : (
+            notifications.slice(0, 3).map((item) => (
+              <button
+                type="button"
+                key={item.id}
+                style={{
+                  ...styles.notificationCard,
+                  background: item.is_read ? "#ffffff" : "#eff6ff",
+                }}
+                onClick={() => navigate("/notifications")}
+              >
+                <span style={styles.notificationIcon}>
+                  {item.is_read ? "📩" : "🔔"}
+                </span>
+
+                <span style={styles.notificationText}>
+                  <strong>{item.title}</strong>
+                  <span>{item.message}</span>
+                  <small>
+                    {item.created_at
+                      ? new Date(item.created_at).toLocaleString()
+                      : ""}
+                  </small>
+                </span>
+
+                {!item.is_read && (
+                  <span style={styles.unreadDot}></span>
+                )}
+              </button>
+            ))
+          )}
         </section>
 
         <section className="section-heading">
@@ -297,5 +429,129 @@ function Dashboard() {
     </div>
   );
 }
+
+const styles = {
+  topbarActions: {
+    display: "flex",
+    alignItems: "center",
+    gap: "18px",
+  },
+
+  notificationButton: {
+    position: "relative",
+    border: "1px solid #e2e8f0",
+    borderRadius: "12px",
+    background: "#ffffff",
+    padding: "10px 13px",
+    fontSize: "22px",
+    cursor: "pointer",
+  },
+
+  notificationBadge: {
+    position: "absolute",
+    top: "-7px",
+    right: "-7px",
+    minWidth: "19px",
+    height: "19px",
+    padding: "0 4px",
+    borderRadius: "12px",
+    background: "#dc2626",
+    color: "#ffffff",
+    fontSize: "11px",
+    fontWeight: "bold",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  badge: {
+    marginLeft: "auto",
+    background: "#dc2626",
+    color: "#ffffff",
+    borderRadius: "12px",
+    padding: "2px 7px",
+    fontSize: "12px",
+    fontWeight: "bold",
+  },
+
+  notificationsSection: {
+    margin: "30px 0",
+    padding: "24px",
+    border: "1px solid #e2e8f0",
+    borderRadius: "16px",
+    background: "#ffffff",
+  },
+
+  notificationsHeading: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "12px",
+    flexWrap: "wrap",
+    marginBottom: "18px",
+  },
+
+  sectionEyebrow: {
+    color: "#2563eb",
+    fontSize: "12px",
+    fontWeight: "bold",
+    letterSpacing: "1.5px",
+  },
+
+  notificationsTitle: {
+    margin: "7px 0 0",
+    fontSize: "23px",
+    color: "#0f172a",
+  },
+
+  viewAllButton: {
+    border: "none",
+    background: "transparent",
+    color: "#2563eb",
+    fontWeight: "bold",
+    cursor: "pointer",
+    padding: "8px",
+  },
+
+  noNotifications: {
+    color: "#64748b",
+    padding: "12px 0",
+  },
+
+  notificationCard: {
+    width: "100%",
+    display: "flex",
+    alignItems: "flex-start",
+    gap: "14px",
+    textAlign: "left",
+    padding: "16px",
+    marginBottom: "10px",
+    border: "1px solid #e2e8f0",
+    borderRadius: "12px",
+    cursor: "pointer",
+    color: "#0f172a",
+  },
+
+  notificationIcon: {
+    fontSize: "23px",
+  },
+
+  notificationText: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: "6px",
+    overflowWrap: "anywhere",
+  },
+
+  unreadDot: {
+    width: "9px",
+    height: "9px",
+    borderRadius: "50%",
+    background: "#2563eb",
+    flexShrink: 0,
+    marginTop: "5px",
+  },
+};
 
 export default Dashboard;
